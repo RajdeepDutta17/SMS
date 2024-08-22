@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #f3f1e3;
+}
+.myBorder {
+  border: 2px solid red;
+}
+.myLetterSpacing {
+  letter-spacing: 1px;
+}
+@media screen and (min-width: 768px) {
+  .myForm div {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+  .inputBox {
+    width: 100%;
+    padding: 2.5vw 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    align-items: flex-start;
+  }
+
+  thead {
+    display: none;
+  }
+
+  td,
+  th {
+    display: grid;
+    grid-template-columns: 15ch auto;
+  }
+
+  td:first-child {
+    padding-top: 1rem;
+  }
+  td:last-child {
+    padding-bottom: 1rem;
+  }
+  td::before {
+    content: attr(data-cell) ": ";
+    font-weight: 500;
+  }
+  th::before {
+    content: attr(data-cell) ": ";
+    font-weight: 500;
+  }
+}
