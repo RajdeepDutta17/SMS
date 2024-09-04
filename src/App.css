@@ -15,6 +15,13 @@ body {
 .myLetterSpacing {
   letter-spacing: 1px;
 }
+.inputBox {
+  width: 60%;
+  margin: auto;
+  padding: 1.5vw 0;
+  display: flex;
+  gap: 0.5vw;
+}
 @media screen and (min-width: 768px) {
   .myForm div {
     width: 60%;

@@ -8,6 +8,8 @@ import EditStudent from "./pages/EditStudent";
 import EditTeacher from "./pages/EditTeacher";
 import AddStudent from "./pages/AddStudent";
 import AddTeacher from "./pages/AddTeacher";
+import AddMarks from "./pages/AddMarks";
+import EditMarks from "./pages/EditMarks";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="/teacher/edit" element={<EditTeacher />} />
         <Route path="/teacher/add" element={<AddTeacher />} />
         <Route path="/marks" element={<Marks />} />
+        <Route path="/marks/add" element={<AddMarks />} />
+        <Route path="/marks/edit" element={<EditMarks />} />
       </Routes>
     </BrowserRouter>
   );
