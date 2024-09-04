@@ -51,10 +51,10 @@ const EditTeacherForm = () => {
         subject: "",
         department: "",
       });
+      return navigate("/teacher");
     } else {
       toast.warn(response?.msg);
     }
-    return navigate("/teacher");
   };
 
   useEffect(() => {

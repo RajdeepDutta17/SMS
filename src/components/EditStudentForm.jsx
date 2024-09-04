@@ -51,10 +51,10 @@ const EditStudentForm = () => {
         standard: "",
         age: "",
       });
+      return navigate("/student");
     } else {
       toast.warn(response?.msg);
     }
-    return navigate("/student");
   };
 
   useEffect(() => {
