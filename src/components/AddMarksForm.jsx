@@ -91,7 +91,7 @@ const AddMarksForm = () => {
           type="text"
           className="form-control"
           id="marks"
-          placeholder="marks"
+          placeholder="Marks"
           name="marks"
           value={form?.marks}
           onChange={(e) => handleInputChange(e, form, setForm)}

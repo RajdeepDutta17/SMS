@@ -7,7 +7,6 @@ import { assignId } from "../redux/slices/idSlice";
 
 const MarksTable = () => {
   const [data, setData] = useState(null);
-  const [filterData, setFilterData] = useState(null);
   const [inputText, setInputText] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -17,7 +16,6 @@ const MarksTable = () => {
 
     if (res?.status) {
       setData(res?.data);
-      setFilterData(res?.data);
     } else {
       toast.warn(res.msg);
     }
@@ -42,8 +40,8 @@ const MarksTable = () => {
     getMarksData();
   };
 
-  const handleSearch = () => {
-    const searchData = data?.filter((item) => {
+  const handleSearch = (item) => {
+    if (inputText) {
       return (
         item.studentInfo.name
           .toLowerCase()
@@ -57,9 +55,9 @@ const MarksTable = () => {
         item.subject.toLowerCase().includes(inputText?.toLowerCase()) ||
         item.marks === Number(inputText)
       );
-    });
-
-    setFilterData(searchData);
+    } else {
+      return item;
+    }
   };
 
   const handleClick = () => {
@@ -68,7 +66,7 @@ const MarksTable = () => {
 
   useEffect(() => {
     getMarksData();
-  }, [inputText]);
+  }, []);
 
   return (
     <>
@@ -80,9 +78,9 @@ const MarksTable = () => {
           value={inputText}
           placeholder="Type to search...."
         />
-        <button className="btn btn-primary" onClick={handleSearch}>
+        {/* <button className="btn btn-primary" onClick={handleSearch}>
           Search
-        </button>
+        </button> */}
       </div>
       <div className="my-3">
         <button className="btn btn-primary" onClick={handleClick}>
@@ -101,7 +99,7 @@ const MarksTable = () => {
           </tr>
         </thead>
         <tbody>
-          {filterData?.map((item, i) => (
+          {data?.filter(handleSearch).map((item, i) => (
             <Fragment key={i}>
               <tr>
                 <th data-cell="Student Id" scope="row">
